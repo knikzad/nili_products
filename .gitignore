@@ -1,0 +1,6 @@
+venv/
+db.sqlite3
+.replit
+replit.nix
+**/__pycache__/
+*.pyc

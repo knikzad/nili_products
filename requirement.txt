@@ -1,0 +1,6 @@
+#Django
+Django==3.2.13
+djangorestframework==3.14.0
+
+#Photo & Image
+Pillow==10.0.1
