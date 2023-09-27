@@ -14,7 +14,9 @@ class Category(models.Model):
     db_table = 'categories'
     verbose_name = _('Category')
     verbose_name_plural = _('Categories')
-
+    
+  def __str__(self):
+    return self.title
 
 class Product(models.Model):
   title = models.CharField(_('title'), max_length=50)
@@ -29,10 +31,12 @@ class Product(models.Model):
     db_table = 'products'
     verbose_name = 'product'
     verbose_name_plural = 'products'
-
+    
+  def __str__(self):
+    return self.title
 
 class File(models.Model):
-  product = models.ForeignKey('Product', verbose_name=_('product'), on_delete=models.CASCADE)
+  product = models.ForeignKey('Product', verbose_name=_('product'), related_name = "files", on_delete=models.CASCADE)
   title = models.CharField(_('title'), max_length=50)
   file = models.FileField(_('file'), upload_to='files/%Y/%m/%d/')
   is_enable = models.BooleanField(_('is_enable'), default=True)
@@ -44,3 +48,6 @@ class File(models.Model):
     db_table = 'files'
     verbose_name = _('file')
     verbose_name_plural = _('files')
+
+  def __str__(self):
+    return self.title
